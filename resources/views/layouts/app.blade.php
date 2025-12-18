@@ -28,9 +28,14 @@ semua halaman ======================================== --}}
     {{-- ↑ Load font Nunito dari Bunny Fonts (alternatif Google Fonts) --}}
 
     <!-- Scripts & Styles -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js']) {{-- ↑ Load file
-    {{-- CSS dan JS yang sudah di-compile oleh Vite - app.scss berisi Bootstrap dan
-    custom styles - app.js berisi Bootstrap JS dan custom scripts --}}
+    {{-- Jika Anda sudah menggunakan Vite/compiled assets, aktifkan @vite lagi. --}}
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+
+    <!-- Bootstrap 5 (CDN) - digunakan sebagai fallback cepat untuk styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    <!-- Optional small custom file (keberadaan tergantung proyek) -->
+    @stack('styles')
   </head>
 
   <body>
@@ -128,4 +133,7 @@ semua halaman ======================================== --}}
       </main>
     </div>
   </body>
+  <!-- Bootstrap Bundle (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="" crossorigin="anonymous"></script>
+  @stack('scripts')
 </html>
