@@ -22,8 +22,6 @@ class User extends Authenticatable
         'role',
         'avatar',
         'google_id',
-        'phone',
-        'address',
     ];
 
     /**
@@ -86,7 +84,25 @@ class User extends Authenticatable
     {
         return $this->role === 'admin';
     }
+<?php
+// ========================================
+// FILE: app/Models/User.php (bagian yang perlu diupdate)
+// ========================================
 
+class User extends Authenticatable
+{
+    // Tambahkan google_id dan avatar ke fillable
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'role',
+        'google_id',   // ← Tambahkan ini
+        'avatar',      // ← Tambahkan ini
+    ];
+
+    // ... kode lainnya tetap sama
+}
     /**
      * Cek apakah user adalah customer.
      */
